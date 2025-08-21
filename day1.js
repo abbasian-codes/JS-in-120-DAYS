@@ -1,44 +1,46 @@
-// const magicNumber = Math.floor(Math.random() * 11)
-// let attampts = 0
+// عدد جادویی بین 0 تا 10
+// const magicNumber = Math.floor(Math.random() * 10) + 1
+// let attempts = 0
 
 // function checkGuess() {
-//   const userGeguss = Number(document.getElementById("guessInput").value)
-//   attampts++
-//   const magicDiv = document.getElementById("message")
+//   const inputEl = document.getElementById("guessInput")
+//   const userGuess = Number(inputEl.value)
+//   const messageDiv = document.getElementById("message")
 
-//   if (userGeguss < magicNumber) {
-//     magicDiv.textContent = "عدد بزرگتر است 🔺"
-//   } else if (userGeguss > magicNumber) {
-//     magicDiv.textContent = "عدد کوچکتر است 🔻"
+//   attempts++
+
+//   if (userGuess < magicNumber) {
+//     messageDiv.textContent = "عدد بزرگتر است 🔺"
+//     messageDiv.className = "hint"
+//   } else if (userGuess > magicNumber) {
+//     messageDiv.textContent = "عدد کوچکتر است 🔻"
+//     messageDiv.className = "hint"
 //   } else {
-//     magicDiv.textContent = `🎉 تبریک! عدد درست را حدس زدی: ${magicNumber} - تعداد حدس‌ها: ${attampts}`
+//     messageDiv.textContent = `🎉 باریکلا! درست حدس زدی: ${magicNumber} - تعداد حدس‌ها: ${attempts}`
+//     messageDiv.className = "correct"
 //   }
-//   document.getElementById("guessInput").value = ""
-//   document.getElementById("guessInput").focus()
+
+//   // پاک کردن input و فوکوس برای حدس بعدی
+//   inputEl.value = ""
+//   inputEl.focus()
 // }
-// عدد جادویی بین 0 تا 10
-const magicNumber = Math.floor(Math.random() * 10) + 1
-let attempts = 0
 
-function checkGuess() {
-  const inputEl = document.getElementById("guessInput")
-  const userGuess = Number(inputEl.value)
-  const messageDiv = document.getElementById("message")
-
-  attempts++
-
-  if (userGuess < magicNumber) {
-    messageDiv.textContent = "عدد بزرگتر است 🔺"
-    messageDiv.className = "hint"
-  } else if (userGuess > magicNumber) {
-    messageDiv.textContent = "عدد کوچکتر است 🔻"
-    messageDiv.className = "hint"
-  } else {
-    messageDiv.textContent = `🎉 باریکلا! درست حدس زدی: ${magicNumber} - تعداد حدس‌ها: ${attempts}`
-    messageDiv.className = "correct"
+function calculator() {
+  const num1 = Number(document.getElementById("num1").value)
+  const num2 = Number(document.getElementById("num2").value)
+  const op = document.getElementById("oprator").value
+  let res = 0
+  if (op === "+") {
+    res = num1 + num2
+    console.log(res)
+  } else if (op === "-") {
+    res = num1 - num2
+  } else if (op === "*") {
+    res = num1 * num2
+  } else if (op === "/") {
+    res = num1 / num2
+  } else if (op === "%") {
+    res = num1 % num2
   }
-
-  // پاک کردن input و فوکوس برای حدس بعدی
-  inputEl.value = ""
-  inputEl.focus()
+  document.getElementById("result").textContent = ` نتیجه :  ${res}`
 }
